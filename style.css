@@ -1,0 +1,791 @@
+/* Reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff; /* Fondo principal blanco */
+    color: #222; /* Texto principal negro suave */
+    line-height: 1.6;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Para evitar el scroll cuando el modal está activo */
+body.modal-active {
+    overflow: hidden;
+}
+
+a {
+    color: #222; /* Enlaces por defecto en negro suave */
+    text-decoration: none;
+    position: relative;
+    font-weight: 600;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #e60000; /* Rojo decorativo para la línea inferior */
+    left: 0;
+    bottom: -4px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+a:hover, a:focus {
+    color: #e60000; /* Rojo decorativo al pasar el ratón */
+}
+a:hover::after, a:focus::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #ffffffcc; /* Blanco semi-transparente */
+    backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid #eee; /* Borde sutil en gris claro */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Sombra muy suave */
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1100;
+    transition: top 0.3s ease;
+}
+
+header.hidden {
+    top: -90px;
+}
+header.visible {
+    top: 0;
+}
+
+header h1 {
+    font-weight: 900;
+    font-size: 2rem;
+    color: #222; /* Título principal en negro suave */
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex; /* Por defecto flex para desktop */
+}
+
+nav a {
+    margin-left: 2rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Hamburger menu for mobile */
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #222;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 1200; /* Above nav */
+}
+
+main {
+    margin-top: 90px; /* espacio para header fijo */
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem 6rem;
+}
+
+/* Carrusel */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    margin-bottom: 4rem;
+}
+
+.carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    filter: brightness(0.85); /* Ligeramente más oscuro para contraste */
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 40px;
+    left: 50px;
+    color: #fff; /* Texto blanco en el carrusel */
+    font-weight: 800;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+    user-select: none;
+    pointer-events: none;
+    max-width: 60%;
+}
+
+/* Botones carrusel */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.2); /* Negro semi-transparente */
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 0.3rem 0.9rem;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+    transition: background 0.3s ease;
+    z-index: 15;
+}
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.4); /* Más oscuro al pasar */
+}
+
+.carousel-btn.prev {
+    left: 20px;
+}
+.carousel-btn.next {
+    right: 20px;
+}
+
+/* Sección Sobre Nosotros */
+section#about {
+    max-width: 800px;
+    margin: 0 auto 5rem;
+    text-align: center;
+    color: #555; /* Texto más suave */
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+section#about strong {
+    color: #222; /* Destacado en negro suave */
+    font-weight: 700;
+}
+
+/* Títulos de sección */
+section h2 {
+    text-align: center;
+    color: #222; /* Título en negro suave */
+    font-weight: 800;
+    font-size: 2.4rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+}
+
+/* Productos Destacados */
+section#featured-products {
+    margin-bottom: 5rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.product-image {
+    width: 100%;
+    height: 190px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Sombra muy sutil */
+    background: #fff;
+    border: 1px solid #eee; /* Borde sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: default;
+}
+.product-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: #e60000; /* Borde rojo al pasar */
+}
+
+/* Promociones */
+section#promotions {
+    margin-bottom: 6rem;
+}
+
+.promo-list {
+    max-width: 700px;
+    margin: 0 auto;
+    list-style: none;
+    padding-left: 0;
+}
+
+.promo-list li {
+    background: #fff; /* Fondo blanco */
+    border-left: 5px solid #e60000; /* Borde izquierdo rojo */
+    padding: 1.2rem 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.05rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03); /* Sombra muy suave */
+    border-radius: 8px;
+    color: #333;
+    transition: background 0.3s ease;
+}
+.promo-list li::before {
+    content: "⚡"; /* Icono más sutil, como un rayo */
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+.promo-list li:hover {
+    background: #f9f9f9; /* Fondo muy claro al pasar */
+    cursor: default;
+}
+
+/* Testimonios */
+section#testimonials {
+    background: #f9f9f9; /* Gris muy claro para la sección */
+    padding: 4rem 2rem;
+    border-radius: 12px;
+    color: #222;
+    max-width: 900px;
+    margin: 0 auto 6rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.testimonial {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+    position: relative;
+    color: #444;
+}
+.testimonial::before, .testimonial::after {
+    content: none; /* Eliminar comillas grandes para un look más limpio */
+}
+.testimonial-author {
+    font-weight: 600;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    text-align: right;
+    color: #222;
+}
+
+/* FAQ */
+section#faq {
+    margin-bottom: 6rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq-item {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.faq-question {
+    width: 100%;
+    display: flex; /* Usar flexbox para alinear texto e icono */
+    justify-content: space-between;
+    align-items: center;
+    background: #fdfdfd; /* Fondo casi blanco para la pregunta */
+    color: #222;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: #e60000;
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active {
+    background: #f0f0f0; /* Gris muy claro al activar */
+}
+
+.faq-question.active::after {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    background: #fff;
+}
+
+.faq-answer p {
+    padding: 1rem 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.faq-question.active + .faq-answer {
+    max-height: 200px; /* Ajustable si el contenido es más largo */
+    padding: 0 1.5rem 1rem;
+}
+
+/* Footer */
+footer {
+    background: #111; /* Negro profundo */
+    color: #ddd; /* Texto blanco suave */
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+}
+footer a {
+    color: #e60000; /* Rojo decorativo para enlaces en el footer */
+    font-weight: 600;
+}
+footer a:hover {
+    color: #ff3333; /* Rojo ligeramente más brillante al pasar */
+}
+
+footer .social-links {
+    margin: 1.2rem 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+footer .social-links a {
+    font-size: 1.6rem;
+    color: #ddd;
+    transition: color 0.3s ease;
+}
+footer .social-links a:hover {
+    color: #e60000;
+}
+
+/* WhatsApp Button (mantiene su color verde estándar por reconocimiento de marca) */
+.whatsapp-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.whatsapp-button {
+    background: #25d366; /* WhatsApp green */
+    color: white;
+    padding: 10px 20px 10px 15px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+}
+
+.whatsapp-button:hover {
+    background: #1da851; /* Darker green on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.whatsapp-button i {
+    font-size: 1.8rem;
+    margin-right: 8px;
+    animation: whatsappIconPulse 1.5s ease-in-out infinite;
+}
+
+/* Keyframes for WhatsApp icon pulse */
+@keyframes whatsappIconPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* WhatsApp text - Always visible and animated */
+.whatsapp-text {
+    background: #fff;
+    color: #2c3e50;
+    padding: 6px 12px;
+    border-radius: 15px;
+    white-space: nowrap;
+    display: inline-block;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+    animation: messageTextPulse 2s ease-in-out infinite;
+}
+
+/* Keyframes for WhatsApp text pulse (emoji-like movement) */
+@keyframes messageTextPulse {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(2px); }
+    50% { transform: translateX(0); }
+    75% { transform: translateX(2px); }
+    100% { transform: translateX(0); }
+}
+
+
+/* Age Verification Modal */
+.age-verification-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Negro más opaco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.age-verification-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.age-verification-modal {
+    background: white;
+    padding: 35px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    transform: translateY(-30px);
+    opacity: 0;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.age-verification-overlay.active .age-verification-modal {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.age-verification-modal h2 {
+    font-size: 2rem;
+    color: #e60000; /* Título en rojo */
+    margin-bottom: 15px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.age-verification-modal p {
+    font-size: 1.05rem;
+    color: #444;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.modal-button {
+    flex: 1;
+    min-width: 160px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.modal-button.confirm {
+    background: #e60000; /* Botón de confirmación en rojo para mantener la paleta */
+    color: white;
+}
+
+.modal-button.confirm:hover {
+    background: #cc0000; /* Rojo más oscuro al pasar */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal-button.deny {
+    background: #555; /* Gris oscuro para el botón de negación */
+    color: white;
+}
+
+.modal-button.deny:hover {
+    background: #333; /* Gris más oscuro al pasar */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Media Queries for Responsive Design --- */
+
+/* Tablet and smaller screens (up to 992px) */
+@media (max-width: 992px) {
+    header {
+        padding: 0.8rem 1.5rem;
+    }
+    header h1 {
+        font-size: 1.7rem;
+    }
+    nav a {
+        margin-left: 1.2rem;
+        font-size: 0.9rem;
+    }
+    main {
+        padding: 2rem 1.5rem 4rem;
+    }
+    .carousel {
+        height: 350px;
+        margin-bottom: 3rem;
+    }
+    .carousel-slide img {
+        height: 350px;
+    }
+    .carousel-caption {
+        font-size: 2rem;
+        left: 30px;
+        bottom: 30px;
+        max-width: 75%;
+    }
+    section h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+        gap: 1.5rem;
+    }
+    .product-image {
+        height: 160px;
+    }
+    .promo-list li {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+    .testimonial {
+        font-size: 1.1rem;
+    }
+    .faq-question {
+        font-size: 0.95rem;
+        padding: 0.9rem 1.2rem;
+    }
+    .faq-answer p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile screens (less than 768px) */
+@media (max-width: 767px) {
+    header {
+        flex-wrap: wrap;
+        padding: 0.7rem 1rem;
+        justify-content: center;
+        text-align: center;
+        height: auto;
+    }
+    header h1 {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+    }
+    .menu-toggle {
+        display: block; /* Muestra el icono de hamburguesa */
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    nav {
+        display: none; /* Oculto por defecto */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background: #fff;
+        border-top: 1px solid #eee;
+        padding-bottom: 0.8rem;
+    }
+    nav.active {
+        display: flex; /* Muestra el nav cuando está activo */
+    }
+    nav a {
+        margin: 0.6rem 0;
+        font-size: 0.85rem;
+        padding: 0.4rem 0;
+    }
+    main {
+        margin-top: 100px; /* Ajusta el margen superior */
+        padding: 1.5rem 1rem 3rem;
+    }
+    .carousel {
+        height: 250px;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+    }
+    .carousel-slide img {
+        height: 250px;
+    }
+    .carousel-caption {
+        font-size: 1.5rem;
+        left: 20px;
+        bottom: 20px;
+        max-width: 90%;
+    }
+    .carousel-btn {
+        font-size: 1rem;
+        padding: 0.1rem 0.4rem;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.4);
+        /* Removido left y right de aquí para aplicar específicamente a prev/next */
+    }
+    .carousel-btn.prev {
+        left: 5px; /* Botón anterior a la izquierda */
+        right: auto; /* Asegura que no tenga propiedad right activa de forma general */
+    }
+    .carousel-btn.next {
+        right: 5px; /* Botón siguiente a la derecha */
+        left: auto; /* Asegura que no tenga propiedad left activa de forma general */
+    }
+    section#about {
+        font-size: 0.9rem;
+        margin-bottom: 3rem;
+    }
+    section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    .products-grid {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+        gap: 1rem;
+    }
+    .product-image {
+        height: 140px;
+        border-radius: 8px;
+    }
+    .promo-list li {
+        padding: 0.9rem 1.2rem;
+        font-size: 0.95rem;
+        border-left-width: 4px;
+    }
+    .promo-list li::before {
+        font-size: 1em;
+        margin-right: 8px;
+    }
+    section#testimonials {
+        padding: 2.5rem 1.2rem;
+        border-radius: 10px;
+        margin-bottom: 4rem;
+    }
+    .testimonial {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+    .faq-question {
+        font-size: 0.9rem;
+        padding: 0.8rem 1rem;
+    }
+    .faq-question::after {
+        font-size: 1.3rem;
+    }
+    .faq-answer p {
+        padding: 0.8rem 0;
+        font-size: 0.85rem;
+    }
+    footer {
+        padding: 1.5rem 1rem;
+        font-size: 0.75rem;
+    }
+    footer .social-links {
+        gap: 12px;
+    }
+    footer .social-links a {
+        font-size: 1.4rem;
+    }
+    .whatsapp-container {
+        bottom: 15px;
+        right: 15px;
+    }
+    .whatsapp-button {
+        padding: 8px 15px 8px 12px;
+        font-size: 0.9rem;
+    }
+    .whatsapp-button i {
+        font-size: 1.5rem;
+        margin-right: 6px;
+    }
+    .whatsapp-text {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+    .age-verification-modal {
+        padding: 25px 20px;
+    }
+    .age-verification-modal h2 {
+        font-size: 1.6rem;
+    }
+    .age-verification-modal p {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+    .modal-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .modal-button {
+        min-width: unset;
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
