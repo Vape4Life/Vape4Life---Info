@@ -1,316 +1,130 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vape4Life - Tu tienda de vapeo en Ecuador</title>
-    <link rel="icon" href="favicon.png" type="image/png"> <meta name="description" content="Vape4Life es tu tienda de vapeo en Ecuador. Ofrecemos productos de alta calidad, e-líquidos, kits y accesorios con atención personalizada. Envío a todo el país.">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vape4Life - Próximamente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    
-    <link rel="stylesheet" href="style.css" />
-
-</head>
-<body>
-
-<div class="age-verification-overlay" id="ageVerificationOverlay">
-    <div class="age-verification-modal">
-        <h2>¿Eres mayor de 18 años?</h2>
-        <p>
-            Debe tener 18 años o más para ver la página. Por favor, verifique su edad para ingresar.
-        </p>
-        <div class="modal-buttons">
-            <button class="modal-button confirm" id="confirmAgeBtn">Sí, soy mayor</button>
-            <button class="modal-button deny" id="denyAgeBtn">No, soy menor</button>
-        </div>
-    </div>
-</div>
-
-<header class="visible" id="header" role="banner">
-    <h1>Vape4Life</h1>
-    <button class="menu-toggle" aria-label="Abrir menú de navegación">
-        <i class="fas fa-bars"></i>
-    </button>
-    <nav role="navigation" aria-label="Menú principal">
-        <a href="#carousel">Inicio</a>
-        <a href="#featured-products">Productos Destacados</a>
-        <a href="#promotions">Promociones</a>
-        <a href="#about">Sobre Nosotros</a>
-        <a href="#testimonials">Testimonios</a>
-        <a href="#faq">FAQ</a>
-        <a href="/foro" target="_blank" rel="noopener">Foro</a>
-    </nav>
-</header>
-
-<main>
-
-    <section class="carousel" id="carousel" aria-label="Carrusel principal de imágenes">
-        <button class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
-        <div class="carousel-track" id="carousel-track">
-            </div>
-        <button class="carousel-btn next" aria-label="Siguiente">&#10095;</button>
-    </section>
-
-    <section id="about" aria-label="Información sobre Vape4Life">
-        <p>
-            En <strong>Vape4Life</strong> ofrecemos productos de vapeo de alta calidad con atención personalizada. Nuestra misión es acompañarte en una experiencia segura y moderna, con variedad, promociones exclusivas y asesoría que marca la diferencia.
-        </p>
-    </section>
-
-    <section id="featured-products" aria-label="Sección de productos destacados">
-        <h2>Productos Destacados</h2>
-        <div class="products-grid" id="products-grid">
-            </div>
-    </section>
-
-    <section id="promotions" aria-label="Sección de promociones">
-        <h2>OFERTAS DESTACADAS</h2>
-        <ul class="promo-list">
-            <li>Con la compra de tu Equipo Recargable obten un 10% de descuento en esencias.</li>
-            <li>Envío gratis en pedidos mayores a $50 en Quito.</li>
-            <li>NUEVOS PRODUCTOS DISPONIBLES PROXIMAMENTE</li>
-        </ul>
-    </section>
-
-    <section id="testimonials" aria-label="Testimonios de clientes">
-        <h2>Lo que dicen nuestros clientes</h2>
-        <div class="testimonial">
-            “Excelente atención y productos de calidad. Me ayudaron a encontrar el equipo perfecto para mi experiencia de vapeo.”
-            <div class="testimonial-author">- María G.</div>
-        </div>
-        <div class="testimonial">
-            “Las promociones siempre son atractivas y el servicio personalizado marca la diferencia. ¡Muy recomendados!”
-            <div class="testimonial-author">- Juan P.</div>
-        </div>
-        <div class="testimonial">
-            “Vape4Life es mi tienda de confianza, siempre con novedades y productos originales.”
-            <div class="testimonial-author">- Luis R.</div>
-        </div>
-    </section>
-
-    <section id="faq" aria-label="Preguntas Frecuentes">
-        <h2>Preguntas Frecuentes</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <button class="faq-question">¿Qué es el vapeo?</button>
-                <div class="faq-answer">
-                    <p>El vapeo es la acción de inhalar y exhalar el vapor producido por un cigarrillo electrónico o vaporizador. Estos dispositivos calientan un líquido (e-líquido o juice) hasta convertirlo en vapor, en lugar de quemar tabaco.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">¿Son seguros los productos de vapeo?</button>
-                <div class="faq-answer">
-                    <p>Los estudios sugieren que el vapeo es significativamente menos dañino que fumar cigarrillos tradicionales, ya que no hay combustión ni producción de alquitrán o monóxido de carbono. Sin embargo, no están exentos de riesgos y lo ideal es dejar de consumir nicotina.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">¿Qué tipo de e-líquidos ofrecen?</button>
-                <div class="faq-answer">
-                    <p>Ofrecemos una amplia variedad de e-líquidos con diferentes sabores (frutales, postres, tabaco, mentolados) y concentraciones de nicotina (0mg, 3mg, 6mg, sales de nicotina). Todos nuestros productos son de marcas reconocidas y cumplen con los estándares de calidad.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">¿Realizan envíos a todo Ecuador?</button>
-                <div class="faq-answer">
-                    <p>Sí, realizamos envíos a todo el Ecuador a través de empresas de mensajería confiables. El costo y tiempo de envío pueden variar según la ciudad de destino.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-</main>
-
-<footer role="contentinfo">
-    <p>© 2025 Vape4Life - Todos los derechos reservados</p>
-    <p>Contáctanos por <a href="https://wa.me/593993286646" target="_blank" rel="noopener">WhatsApp</a></p>
-    <div class="social-links" aria-label="Redes sociales">
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram-square"></i></i></a>
-        <a href="#" aria-label="Twitter"><i class="fab fa-twitter-square"></i></a>
-    </div>
-</footer>
-
-<div class="whatsapp-container">
-    <a href="https://wa.me/593993286646" class="whatsapp-button" target="_blank" rel="noopener" aria-label="Enviar mensaje por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-        <span class="whatsapp-text">Haz tu pedido</span>
-    </a>
-</div>
-
-<script>
-    // Script para el modal de verificación de edad
-    document.addEventListener('DOMContentLoaded', () => {
-        const ageVerificationOverlay = document.getElementById('ageVerificationOverlay');
-        const confirmAgeBtn = document.getElementById('confirmAgeBtn');
-        const denyAgeBtn = document.getElementById('denyAgeBtn');
-        const body = document.body;
-
-        // El modal siempre se activa al cargar la página
-        ageVerificationOverlay.classList.add('active');
-        body.classList.add('modal-active'); // Deshabilita el scroll del body
-
-        confirmAgeBtn.addEventListener('click', () => {
-            ageVerificationOverlay.classList.remove('active');
-            body.classList.remove('modal-active'); // Habilita el scroll del body
-        });
-
-        denyAgeBtn.addEventListener('click', () => {
-            // Redirigir a una página informativa sobre los riesgos
-            window.location.href = 'https://www.who.int/es/news-room/questions-and-answers/item/tobacco-e-cigarettes';
-        });
-
-        // Header oculto/visible en scroll
-        let lastScrollTop = 0;
-        const header = document.getElementById('header');
-
-        window.addEventListener('scroll', () => {
-            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-            if (currentScroll > lastScrollTop && currentScroll > 100) {
-                // Scroll down
-                header.classList.add('hidden');
-                header.classList.remove('visible');
-            } else {
-                // Scroll up
-                header.classList.remove('hidden');
-                header.classList.add('visible');
-            }
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-        });
-
-        // Hamburger menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
-
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            // Change icon
-            const icon = menuToggle.querySelector('i');
-            if (nav.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // Close mobile nav when a link is clicked
-        nav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (nav.classList.contains('active')) {
-                    nav.classList.remove('active');
-                    menuToggle.querySelector('i').classList.remove('fa-times');
-                    menuToggle.querySelector('i').classList.add('fa-bars');
-                }
-            });
-        });
-
-
-        // CARRUSEL DINÁMICO
-        const carruselImgs = [
-            { name: "foto1.jpg", caption: "Tu Experiencia, Nuestra Pasión." },
-            { name: "foto2.png", caption: "KIT Smok NOVO GT" },
-            { name: "foto3.jpg", caption: "Descubre Nuevos Horizontes en el Vapeo." },
-            { name: "foto4.jpg", caption: "Asesoría Personalizada Siempre." },
-            { name: "foto5.jpg", caption: "Innovación y Tendencia en Cada Producto." }
-        ];
-
-        const carouselTrack = document.getElementById('carousel-track');
-
-        carruselImgs.forEach((imgData, index) => {
-            const slideDiv = document.createElement('div');
-            slideDiv.classList.add('carousel-slide');
-
-            const img = document.createElement('img');
-            img.src = `./imagenes_carrusel/${imgData.name}`;
-            img.alt = `Imagen del carrusel ${index + 1}: ${imgData.caption}`;
-            img.loading = 'lazy';
-
-            const caption = document.createElement('div');
-            caption.classList.add('carousel-caption');
-            caption.textContent = imgData.caption;
-
-            slideDiv.appendChild(img);
-            slideDiv.appendChild(caption);
-            carouselTrack.appendChild(slideDiv);
-        });
-
-        // Código carousel (controles)
-        const track = carouselTrack;
-        const slides = Array.from(track.children);
-        const prevBtn = document.querySelector('.carousel-btn.prev');
-        const nextBtn = document.querySelector('.carousel-btn.next');
-        let currentIndex = 0;
-
-        function updateCarousel() {
-            const slideWidth = slides[0].getBoundingClientRect().width;
-            track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+    <style>
+        /* Estilos generales del cuerpo */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            animation: background-animate 20s ease infinite;
         }
 
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            updateCarousel();
-        });
+        /* Animación del fondo (opcional) */
+        @keyframes background-animate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % slides.length;
-            updateCarousel();
-        });
+        /* Contenedor principal con efecto "vidrioso" */
+        .glass-container {
+            max-width: 600px;
+            padding: 40px;
+            margin: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
 
-        // Auto slide cada 6 segundos
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % slides.length;
-            updateCarousel();
-        }, 6000);
+        /* Títulos y texto */
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #e60000;
+            margin-bottom: 15px;
+        }
 
-        // Ajuste del carrusel en redimensionamiento de ventana
-        window.addEventListener('resize', updateCarousel);
+        p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #444;
+        }
 
+        .contact {
+            margin-top: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
 
-        // Carga productos destacados dinámicos desde carpeta /productos
-        const productosImgs = [
-            { name: "producto1.png", alt: "Vapeador Caliburn G2" },
-            { name: "producto2.png", alt: "Líquido Nasty Juice" },
-            { name: "producto3.png", alt: "Sales de Nicotina Pachamama" },
-            { name: "producto4.png", alt: "Pod System Vaporesso XROS 3" },
-            { name: "producto5.png", alt: "Mod de Batería Externa GeekVape" },
-            { name: "producto6.png", alt: "Kit de Inicio Smok Novo" }
-        ];
+        /* Estilo del botón flotante de WhatsApp */
+        .whatsapp-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
 
-        const productsGrid = document.getElementById('products-grid');
-        productosImgs.forEach(producto => {
-            const img = document.createElement('img');
-            img.src = `./productos/${producto.name}`;
-            img.alt = producto.alt;
-            img.className = 'product-image';
-            img.loading = 'lazy';
-            productsGrid.appendChild(img);
-        });
+        .whatsapp-button {
+            background: #25d366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
 
-        // Funcionalidad FAQ
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                const faqAnswer = button.nextElementSibling;
+        .whatsapp-button:hover {
+            background: #1da851;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+        }
 
-                button.classList.toggle('active');
+        .whatsapp-button i {
+            font-size: 1.8rem;
+            margin-right: 8px;
+        }
 
-                if (button.classList.contains('active')) {
-                    faqAnswer.style.maxHeight = faqAnswer.scrollHeight + "px";
-                } else {
-                    faqAnswer.style.maxHeight = "0";
-                }
-            });
-        });
-    }); // Fin de DOMContentLoaded
-</script>
+        /* Adaptabilidad para móviles */
+        @media (max-width: 768px) {
+            .glass-container {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-container">
+        <h1>¡Estamos de vuelta pronto!</h1>
+        <p>
+            Estamos trabajando arduamente en una experiencia de vapeo renovada para ti. <br>
+            Gracias por tu paciencia.
+        </p>
+        <div class="contact">
+            Mientras tanto, puedes contactarnos por WhatsApp para cualquier pedido:<br>
+        </div>
+    </div>
 
+    <div class="whatsapp-container">
+        <a href="https://wa.me/593993286646" class="whatsapp-button" target="_blank" rel="noopener" aria-label="Enviar mensaje por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            <span>Contactar</span>
+        </a>
+    </div>
 </body>
-
 </html>
-
-
-
-
-
